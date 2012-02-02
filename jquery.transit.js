@@ -141,6 +141,22 @@
     }
   };
 
+  // ## 'transition' CSS hook
+  //
+  // Allows the use of 'transition' css property
+  // this will prepend the browser prefix
+  //
+  //     $("#hello").css({ transition: 'all 0.5s ease-in' });
+  //
+  $.cssHooks.transition = {
+    get: function(elem) {
+      return elem.style[support.transition];
+    },
+    set: function(elem, value) {
+      elem.style[support.transition] = value;
+    }
+  };
+
   // ## Other CSS hooks
   // Allows you to rotate, scale and translate.
   registerCssHook('scale');
